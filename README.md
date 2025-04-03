@@ -22,10 +22,10 @@ The diagram below breakdown how the different context scripts (of a Chrome exten
 
 ```mermaid
 sequenceDiagram
-  participant w as provider (web page)
-  participant c as content script
-  participant b as background script
-  participant p as popup
+  participant w as web page
+  participant c as content.js script
+  participant b as background.js script
+  participant p as extension popup
   w->>+c: LaserProvider.request<br/>(document.dispatchEvent)
   c->>b: document.addEventListener<br/>(port.postMessage)
   b->>+p: port.onMessage.addListener<br/>(chrome.windows.create)
