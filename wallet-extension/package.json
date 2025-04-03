@@ -1,0 +1,46 @@
+{
+  "name": "wallet-extension",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "@bitcoinerlab/secp256k1": "^1.2.0",
+    "@stacks/connect": "^8.1.7",
+    "@stacks/transactions": "^7.0.4",
+    "@stacks/wallet-sdk": "^7.0.4",
+    "bitcoinjs-lib": "^6.1.7",
+    "browserify": "^17.0.1",
+    "buffer": "^6.0.3",
+    "c32check": "^2.0.0",
+    "chrome-types": "^0.1.340",
+    "lucide-vue-next": "^0.483.0",
+    "tiny-secp256k1": "^2.2.3",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/chrome": "^0.0.304",
+    "@types/node": "^22.13.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-typescript": "^14.3.0",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "jiti": "^2.4.2",
+    "npm-run-all2": "^7.0.2",
+    "typescript": "~5.7.3",
+    "vite": "^6.0.11",
+    "vite-plugin-vue-devtools": "^7.7.1",
+    "vite-plugin-wasm": "^3.4.1",
+    "vue-tsc": "^2.2.0"
+  }
+}

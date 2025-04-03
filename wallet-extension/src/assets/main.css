@@ -1,0 +1,87 @@
+@import "./base.css";
+
+#app {
+  width: 390px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f2f0ed;
+  font-weight: normal;
+}
+
+button {
+  font-size: large;
+  font-family: AeonikFono;
+  padding: 13px 0px;
+  border-width: 0px;
+  border-radius: 5px;
+  background-color: #cfc9c2;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #ff5500;
+}
+
+input {
+  font-family: "AeonikFono";
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  padding: 0px 10px;
+}
+
+.start-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.user-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 30px;
+}
+
+.page-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.page-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  row-gap: 20px;
+}
+
+.user-page-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  margin: 0px 5px;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}

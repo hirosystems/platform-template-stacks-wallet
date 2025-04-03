@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Laser-Wallet",
+  "version": "1.0.0",
+  "description": "A Bitcoin Layer 2 Wallet called Laser Wallet",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["scripting", "tabs", "activeTab"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "icons": {
+    "48": "laser-eyes-lil-guy-dark.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injection.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
