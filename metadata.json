@@ -1,0 +1,19 @@
+{
+  "title": "Wallet <> App Template",
+  "description": "A minimalistic template for building a Stacks wallet. Includes a Vue.js frontend and a Clarity smart contract for complete functionality.",
+  "type": "wallet",
+  "framework": "Clarity, Vue.js, Chrome Extension",
+  "demoUrl": "",
+  "useCase": "Web3 Wallet",
+  "complexity": "Intermediate",
+  "tags": [
+    "wallet",
+    "chrome-extension",
+    "@stacks/connect",
+    "wbip",
+    "smart-contract",
+    "stacks",
+    "clarity",
+    "Vue.js"
+  ]
+}

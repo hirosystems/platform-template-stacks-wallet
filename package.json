@@ -1,0 +1,9 @@
+{
+  "name": "wallet-app-template",
+  "private": true,
+  "workspaces": [
+    "clarity",
+    "front-end",
+    "wallet-extension"
+  ]
+}

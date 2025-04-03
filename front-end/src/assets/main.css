@@ -1,0 +1,56 @@
+@import "./base.css";
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+button {
+  font-family: "AeonikMono";
+  cursor: pointer;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  background-color: #cfc9c2;
+}
+
+button:hover {
+  background-color: #ff5500;
+}
+
+small {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 5px;
+}
+
+a {
+  color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inline-link {
+  display: inline;
+  text-decoration: none;
+  color: #ff9ecf;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    padding: 0 2rem;
+  }
+}
