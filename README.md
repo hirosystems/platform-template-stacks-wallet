@@ -18,6 +18,8 @@ This example template is intended for educational purposes only. The provided sm
 
 ## Understanding the Wallet Extension <> Front-End App communication
 
+The diagram below breakdown how the different context scripts (of a Chrome extension) communicate with each other. Diagram taken from [this](https://github.com/wbips/webbtc-extension-template) other excellent template, which is a bit more bare bones but also very clear.
+
 ```mermaid
 sequenceDiagram
   participant w as provider (web page)
