@@ -41,7 +41,7 @@ These communication flows are based off of standards like WBIP and SIP-030 to al
 
 To run this app with a Stacks Devnet (private development blockchain environment), follow these steps:
 
-2. **Configure Local Environment**
+1. **Configure Local Environment**
 
 From the root directory, install dependencies:
 
@@ -61,7 +61,7 @@ Add your Hiro Platform API key to the renamed `front-end/.env` file:
 VITE_PLATFORM_HIRO_API_KEY=your-api-key-here
 ```
 
-1. **Start Devnet in Hiro Platform**
+2. **Start Devnet in Hiro Platform**
 
 - Log into the [Hiro Platform](https://platform.hiro.so)
 - Navigate to your project and start Devnet (No need to update the Devnet deployment plan if it asks)
@@ -69,7 +69,7 @@ VITE_PLATFORM_HIRO_API_KEY=your-api-key-here
   - The Devnet Stacks API URL: `https://api.platform.hiro.so/v1/ext/<YOUR-API-KEY>/stacks-blockchain-api`
   - Or from https://platform.hiro.so/settings/api-keys
 
-2. **Bundle and Enable Wallet Extension in Browser**
+3. **Bundle and Enable Wallet Extension in Browser**
 
 - Run `npm run build` in the `wallet-extension` directory or `npm run build --workspace=wallet-extension` in the root directory.
 - The generated build file will live in a new `dist/` folder which needs to be added as a Chrome extension in your browser:
@@ -83,7 +83,7 @@ VITE_PLATFORM_HIRO_API_KEY=your-api-key-here
   - Enable and pin the extension to your browser.
   - Click the reload button in the extension card if you make changes to the `dist/` folder.
 
-3. **Start the Frontend Application**
+4. **Start the Frontend Application**
 
 Start the Vue/Vite application from the `front-end` directory.
 
@@ -114,7 +114,7 @@ This app uses a Clarity smart contract which handles the simple incrementing of 
 - `increment`: Allows the incrementing of a uint variable.
 - `get-count`: Returns the current uint `count` variable.
 
-## About the Devnet
+## Using Devnet
 
 The Hiro Platform's Devnet is a sandboxed, personal blockchain environment for testing your dApps before deploying them to the testnet or mainnet. Each time you start a new Devnet, it will reset the blockchain state and deploy your project contracts from scratch.
 
