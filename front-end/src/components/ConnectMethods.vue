@@ -85,7 +85,9 @@ function handleConsoleLog() {
     </p>
     <p>
       - Click the Stacks Wallet extension icon in the browser toolbar to open the extension
-      popup and create a new wallet or import an existing 24 mnemonic word seed phrase.
+      popup and create a new wallet or import an existing 24 mnemonic word seed phrase. Best if
+      you import one of the pre-funded wallets provided in the <code>Devnet.toml</code> file of
+      your Clarinet project directory.
     </p>
     <p>
       - Go ahead and click 'connect' below to see Stacks Wallet appear as an option in the

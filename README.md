@@ -83,6 +83,8 @@ VITE_PLATFORM_HIRO_API_KEY=your-api-key-here
   - Enable and pin the extension to your browser.
   - Click the reload button in the extension card if you make changes to the `dist/` folder.
 
+> Before starting the front-end app, click the Stacks Wallet extension icon in the browser toolbar to open the extension popup and create a new wallet or import an existing 24 mnemonic word seed phrase. Best if you import one of the pre-funded wallets provided in the <code>Devnet.toml</code> file of your Clarinet (clarity) project directory.
+
 4. **Start the Frontend Application**
 
 Start the Vue/Vite application from the `front-end` directory.
