@@ -19,7 +19,7 @@ const openReadmeInEditor = () => fetch("/__open-in-editor?file=../README.md")
         bundled wallet extension project.
       </li>
       <li>
-        Ensure Laser Wallet extension is enabled and pinned as an active browser extension.
+        Ensure Stacks Wallet extension is enabled and pinned as an active browser extension.
       </li>
       <li>
         Start the Platform hosted devnet environment to deploy the sample Clarity contract

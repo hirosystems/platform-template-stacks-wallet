@@ -6,10 +6,13 @@ import type { JsonRpcRequest } from "@/utils/types";
 
 let payload = ref<JsonRpcRequest>();
 let tabId = ref<string>("");
+let hasStorageMnemonic = ref(false);
 
 // Checking if popup was opened from a webpage with a payload, or via the extension icon.
 // The `tabId` and `payload` are passed as query params from the openPopupConfirmation function of background.js.
 onBeforeMount(() => {
+  if (localStorage.getItem("mnemonic")) hasStorageMnemonic.value = true;
+
   const capturedSearchParams = new URLSearchParams(document.location.search);
 
   if (capturedSearchParams.size > 0) {
@@ -23,8 +26,8 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <!-- if payload is present in the search params, show the Confirmation component -->
-  <div v-if="payload">
+  <!-- if payload is present in the search params and has existing mnemonic in storage, show the Confirmation component -->
+  <div v-if="payload && hasStorageMnemonic">
     <Confirmation :payload="payload" :tabId="tabId" />
   </div>
   <!-- else the RouterView component will handle the viewing of the normal wallet extension views -->

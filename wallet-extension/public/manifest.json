@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Laser-Wallet",
+  "name": "Stacks-Wallet",
   "version": "1.0.0",
-  "description": "A Bitcoin Layer 2 Wallet called Laser Wallet",
+  "description": "Stacks Wallet is your complete Bitcoin Layer 2 experience, secured.",
   "action": {
     "default_popup": "index.html"
   },

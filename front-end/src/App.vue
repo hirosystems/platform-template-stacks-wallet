@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { Router, WalletMinimal } from "lucide-vue-next"
 import { onBeforeMount, onMounted, onUnmounted, provide, ref } from "vue"
-// @ts-ignore
 import { isConnected } from "@stacks/connect"
 import Instructions from "./components/Instructions.vue"
 import ConnectMethods from "./components/ConnectMethods.vue"
 
 let isWalletConnected = ref(false)
-let checkLaserProviderInterval: number | null = null
-let isLaserProviderInjected = ref(false)
+let checkStacksWalletInterval: number | null = null
+let isStacksWalletInjected = ref(false)
 let checkDevnetConnectionInterval: number | null = null
 let isDevnetConnected = ref(false)
 
@@ -34,17 +33,20 @@ const handleDevnetConnectionStatus = async () => {
     }
   } catch (error) {
     isDevnetConnected.value = false
-    console.log("[App] Error fetching devnet status:", error)
+    console.log(
+      "[App] Error fetching devnet status. Verify if your local or Platform hosted devnet is running.",
+      error
+    )
   }
 }
 
 onBeforeMount(async () => {
-  checkLaserProviderInterval = window.setInterval(() => {
+  checkStacksWalletInterval = window.setInterval(() => {
     // @ts-ignore
-    if (window.LaserProvider.isLaser) {
-      isLaserProviderInjected.value = true
-      clearInterval(checkLaserProviderInterval!)
-      checkLaserProviderInterval = null
+    if (window.StacksWallet.isStacksWallet) {
+      isStacksWalletInjected.value = true
+      clearInterval(checkStacksWalletInterval!)
+      checkStacksWalletInterval = null
 
       if (isConnected()) {
         isWalletConnected.value = true
@@ -59,7 +61,7 @@ onBeforeMount(async () => {
 })
 
 const handleMessageFromContentScript = (event: MessageEvent) => {
-  console.log("[App] Received message from external script:", event.data)
+  console.log("[App] Received message from wallet extension script:", event.data)
 }
 
 onMounted(() => {
@@ -82,14 +84,14 @@ onUnmounted(() => {
   >
 
   <small
-    ><WalletMinimal :size="13" /> Laser Wallet Extension:
+    ><WalletMinimal :size="13" /> Stacks Wallet Extension:
     <span :style="{ color: '#C2EBC4' }">{{
-      isLaserProviderInjected ? "Enabled" : "Disabled"
+      isStacksWalletInjected ? "Enabled" : "Disabled"
     }}</span></small
   >
   <div class="main-container">
     <h2>Wallet <> App Template</h2>
-    <template v-if="!isLaserProviderInjected || !isDevnetConnected">
+    <template v-if="!isStacksWalletInjected || !isDevnetConnected">
       <Instructions />
     </template>
 

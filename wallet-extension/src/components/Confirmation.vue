@@ -13,9 +13,8 @@ onBeforeMount(() => {
     return;
   }
 
-  // todo: determine which account index user wallet is using and update accountIndex ref value
-
   mnemonic.value = storageMnemonic!;
+  // todo: determine which account index user wallet is using and update accountIndex ref value
 });
 
 // props being passed from App.vue
@@ -26,8 +25,9 @@ let props = defineProps<{
   tabId: string;
 }>();
 
+console.log("Incoming request payload:");
 console.log(props.payload);
-console.log(props.tabId);
+console.log(`Incoming request from tabId: ${props.tabId}`);
 
 // handleConfirm function to execute the method and params from the payload
 async function handleConfirm() {

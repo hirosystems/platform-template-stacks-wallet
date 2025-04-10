@@ -1,18 +1,3 @@
-@font-face {
-  font-family: "Aeonik";
-  src: url("https://assets.hiro.so/Aeonik-Bold.woff") format("woff");
-}
-
-@font-face {
-  font-family: "AeonikFono";
-  src: url("https://assets.hiro.so/AeonikFono-Regular.woff") format("woff");
-}
-
-@font-face {
-  font-family: "AeonikMono";
-  src: url("https://assets.hiro.so/AeonikMono-Regular.woff") format("woff");
-}
-
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
@@ -80,7 +65,7 @@ body {
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: "AeonikFono", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

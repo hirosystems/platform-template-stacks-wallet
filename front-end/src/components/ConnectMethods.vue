@@ -7,15 +7,13 @@ let isWalletConnected = inject("isWalletConnected") as Ref<boolean>
 
 async function handleSignMessage() {
   // OPTIONAL: directly call the provider:
-  // const response = await window.LaserProvider.request("stx_signMessage", {
-  //   message: "laser wallet rocks"
+  // const response = await window.StacksWallet.request("stx_signMessage", {
+  //   message: "Stacks Wallet rocks!"
   // })
 
   const response = await request("stx_signMessage", {
-    message: "laser wallet rocks"
+    message: "Stacks Wallet rocks!"
   })
-
-  console.log(response)
 }
 
 async function handleConnect() {
@@ -26,8 +24,6 @@ async function handleConnect() {
   if (authRequest) {
     isWalletConnected.value = true
   }
-
-  console.log(authRequest)
 }
 
 function handleGetLocalStorage() {
@@ -47,13 +43,12 @@ function handleIsConnected() {
 
 async function handleCallContract() {
   const response = await request("stx_callContract", {
+    // default contract address from devnet
     contract: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.counter",
     functionName: "increment",
     functionArgs: [],
     network: "devnet"
   })
-
-  console.log(response)
 }
 
 function handleDisconnect() {
@@ -71,25 +66,29 @@ function handleConsoleLog() {
 <template>
   <template v-if="!isWalletConnected">
     <p>
-      - Awesome! the wallet (aka Laser Wallet) extension is enabled and has injected its
+      - Awesome! the Stacks wallet extension is enabled and has registered its
       <code
         ><a
           href="https://github.com/hirosystems/connect#wallet-implementation-guide"
           target="_blank"
           class="inline-link"
-          >`LaserProvider`</a
+          >`StacksWallet`</a
         ></code
       >
-      object to the global <code>`window`</code> object of this page.
+      object provider to the global <code>`window`</code> object of this page.
     </p>
     <p>
       - Click <span class="inline-link" @click="handleConsoleLog">here</span> and check the
-      browser console to see Laser Wallet as an available
+      browser console to see Stacks Wallet as an available
       <a href="https://wbips.netlify.app/" target="_blank" class="inline-link">WBIP Provider</a
       >.
     </p>
     <p>
-      - Go ahead and click 'connect' below to see Laser Wallet appear as an option in the
+      - Click the Stacks Wallet extension icon in the browser toolbar to open the extension
+      popup and create a new wallet or import an existing 24 mnemonic word seed phrase.
+    </p>
+    <p>
+      - Go ahead and click 'connect' below to see Stacks Wallet appear as an option in the
       @stacks/connect modal UI.
     </p>
     <br />
@@ -97,7 +96,7 @@ function handleConsoleLog() {
   </template>
   <template v-else>
     <p>
-      - Your Laser Wallet extension is now connected with this app. Go ahead and interact with
+      - Your Stacks Wallet extension is now connected with this app. Go ahead and interact with
       it using the below @stacks/connect methods.
     </p>
     <p>

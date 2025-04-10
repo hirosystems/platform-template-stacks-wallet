@@ -100,7 +100,6 @@ select {
   cursor: pointer;
   border: none;
   background: transparent;
-  font-family: "AeonikFono";
 }
 
 small {

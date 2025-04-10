@@ -1,5 +1,7 @@
 # front-end
 
+Refer to the README.md at the root directory for getting started with the Wallet-App-Template. The below is boilerplate README that comes with a Vue/Vite app.
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup

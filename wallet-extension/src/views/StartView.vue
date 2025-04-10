@@ -48,7 +48,7 @@ onBeforeMount(() => {
   <section class="start-page">
     <div class="page-top">
       <img src="/laser-eyes-lil-guy-dark.png" width="100px" alt="laser-logo" />
-      <h1>laser wallet</h1>
+      <h1>Stacks Wallet</h1>
       <div>Your Bitcoin experience, secured.</div>
     </div>
 
@@ -76,5 +76,9 @@ onBeforeMount(() => {
   display: flex;
   flex-direction: column;
   row-gap: 13px;
+}
+
+h1 {
+  font-weight: 900;
 }
 </style>

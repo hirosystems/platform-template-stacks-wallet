@@ -44,16 +44,16 @@ async function generateInitialAccounts(mnemonic: string) {
     });
   }
 
-  console.log("[LaserProvider]: First 20 accounts generated:");
+  console.log("[StacksWallet]: First 20 accounts generated:");
   console.log(accounts);
 
   return accounts;
 }
 
-// generates the bitcoin P2TR (taproot) address for the user
+// generates the bitcoin P2TR (taproot) address for the user using bitcoinjs-lib
 async function generateP2TR(pubkey: String) {
   // @ts-ignore
-  // `bitcoin` is a global variable injected by the `bitcoinjs-lib.js` script in the root directory
+  // `bitcoin` is a global variable injected by the `bitcoinjs-lib.js` script in the `wallet-extension` directory
   bitcoin.initEccLib(ecc);
 
   // @ts-ignore

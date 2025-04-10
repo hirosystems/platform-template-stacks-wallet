@@ -2,7 +2,7 @@
 
 This wallet template is scaffold using Vue 3 in Vite.
 
-This wallet template is compatible with Chrome extensions via the `manifest.json` file located in the `/public` folder, which also houses important context scripts:
+This wallet template is compatible with Chrome [extensions](https://developer.chrome.com/docs/extensions) via the `manifest.json` file located in the `/public` folder, which also houses important context scripts:
 
 - `content.js` - Acts as the communication layer between the document page and the `background.js` script
 - `background.js` - Acts as the communication layer between the `content.js` script and the popup script
@@ -16,13 +16,14 @@ The `/src` folders houses all the scripts used in the extension popup.
 - Run `npm run build` in the `wallet-extension` directory or `npm run build --workspace=wallet-extension` in the root directory.
 - The generated build file will live in a new `dist/` folder which will be added as a Chrome extension in your browser:
   1. Enable Developer Mode:
-  - Open Chrome and go to chrome://extensions/.
+  - Open Chrome and go to [chrome://extensions](chrome://extensions/).
   - Toggle on the "Developer mode" switch in the top right corner.
   2. Load the Unpacked Extension:
   - Click the "Load unpacked" button.
   - Navigate to the folder containing your extension's files and click "Select Folder".
   - Chrome will then load and install the extension.
   - Enable and pin the extension to your browser.
+  - Click the reload button in the extension card if you make changes to the `dist/` folder.
 
 ## Basic default functions/features of this Stacks wallet
 

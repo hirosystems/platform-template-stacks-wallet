@@ -85,7 +85,6 @@ sbtc_balance = 1_000_000_000
 [devnet]
 disable_stacks_explorer = false
 disable_stacks_api = false
-docker_host = "unix:///Users/ecbsj/.orbstack/run/docker.sock"
 # disable_postgres = false
 # disable_subnet_api = false
 # disable_bitcoin_explorer = true

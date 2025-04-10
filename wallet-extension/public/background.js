@@ -1,37 +1,29 @@
-// listen for connections from the content.js script
-chrome.runtime.onConnect.addListener((port) => {
-  if (port.name === "content<>background") {
-    port.onMessage.addListener((message, port) => {
-      // todo: handle the message from the content script
+// listens for messages from the extension popup script and content script
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  // Send a response back to the sending script
+  // sendResponse("Message received from the background script!");
 
-      // verify port info
-      console.log("Port info:", port);
-      const originUrl = port.sender?.origin ?? port.sender?.url;
-      if (!port.sender?.tab?.id || !originUrl) {
-        return console.error("Missing data from sender tab.");
-      }
-
-      // optional: send a message back to the content script
-      // port.postMessage({ data: "background script received data!" });
-
-      openPopupConfirmation({ message, port });
-    });
+  // verify sender info
+  // console.log("Sender info:", sender);
+  const originUrl = sender.origin ?? sender.url;
+  if (!sender.tab?.id || !originUrl) {
+    return console.error("Missing data from sender tab.");
   }
+
+  openPopupConfirmation({ message, sender });
 });
 
 // opens a popup confirmation window which
 // triggers the Confirmation.vue component to open
-async function openPopupConfirmation({ message, port }) {
+async function openPopupConfirmation({ message, sender }) {
   return new Promise((resolve) => {
     chrome.windows.getCurrent({ populate: false }, async (currentWindow) => {
-      console.log("Current window:", currentWindow);
-
-      if (port.sender.tab.windowId !== currentWindow.id) {
+      if (sender.tab.windowId !== currentWindow.id) {
         return console.error("Sender tab is not the current window.");
       }
 
       let params = new URLSearchParams({
-        tabId: String(port.sender?.tab?.id ?? 0),
+        tabId: String(sender.tab.id ?? 0),
         payload: encodeURIComponent(JSON.stringify(message)),
       });
 
@@ -44,7 +36,7 @@ async function openPopupConfirmation({ message, port }) {
           focused: true,
         },
         (newWindow) => {
-          console.log("New window created:", newWindow);
+          // console.log("New window created:", newWindow);
         }
       );
 
@@ -52,14 +44,3 @@ async function openPopupConfirmation({ message, port }) {
     });
   });
 }
-
-// listens for messages from the extension popup script
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  // Handle the message from the popup script
-  console.log("Message from popup script:", message.data);
-
-  // Send a response back to the popup script
-  sendResponse({ data: "Hello from background script!" });
-
-  return true;
-});
