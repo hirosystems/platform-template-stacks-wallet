@@ -4,6 +4,8 @@
 
 This template showcases a minimal setup of a Stacks wallet extension that adheres to the new [@stacks/connect](https://github.com/hirosystems/connect) version and based off of the standards outlined in [WBIP](https://wbips.netlify.app/).
 
+> IMPORTANT: The browser wallet extension template will store the generated mneomic seed phrase in the browser's local storage without any standard encryption best practices. If you plan to use this in a production environment, implement secure best practices for the safe encryption and storage of users' mnemonic seed phrases.
+
 Although this template focuses on providing a starter Stacks wallet extension, it comes with a Clarity smart contract and front-end app to fully test the full-stack interoperability. The template comprises of 3 folders:
 
 - `clarity`: A Clarinet project that houses a simple counter contract.
@@ -34,8 +36,6 @@ sequenceDiagram
 ```
 
 These communication flows are based off of standards like WBIP and SIP-030 to allow wallets to communicate with apps in a more simplified and flexible way.
-
-> IMPORTANT: The browser wallet extension template will store the generated mneomic seed phrase in the browser's local storage without any standard encryption best practices. If you plan to use this in a production environment, implement secure best practices for the safe encryption and storage of users' mnemonic seed phrases.
 
 ## Development
 
@@ -106,6 +106,15 @@ But after creating a wallet and connecting it to the app, you'll be able to inte
 - Creates Stacks and Bitcoin addresses that stem from the same public key
 - Injects and registers wallet to document page as `window.StacksWallet`
 - Supports @stacks/connect methods
+
+### Securing Mnemonic Seeds
+
+As mentioned earlier, this browser wallet extension template will store the generated mneomic seed phrase in the browser's local storage without any standard encryption best practices. If you plan to use this in a production environment, implement secure best practices for the safe encryption and storage of users' mnemonic seed phrases.
+
+Suggestions on securing mnemonic seed phrases
+
+- Using a combination between user provided password and encryption scheme. Check out [@stacks/encryption](https://github.com/hirosystems/stacks.js/tree/main/packages/encryption) for examples.
+- Minimizing exposure in memory and [key persistence](https://github.com/leather-io/extension/discussions/2111)
 
 ## About the Smart Contract
 
