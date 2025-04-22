@@ -2,6 +2,7 @@
 import { inject, type Ref } from "vue"
 import { connect, disconnect, getLocalStorage, isConnected, request } from "@stacks/connect"
 import { CircleHelp } from "lucide-vue-next"
+import Button from "./ui/Button.vue"
 
 let isWalletConnected = inject("isWalletConnected") as Ref<boolean>
 
@@ -61,6 +62,39 @@ function handleConsoleLog() {
   // @ts-ignore
   console.log(window.wbip_providers!)
 }
+
+let methodsArray = [
+  {
+    name: "isConnected",
+    description: "Checks if wallet is connected to app",
+    function: handleIsConnected,
+    link: "https://docs.hiro.so/stacks/connect/guides/authenticate-users#manage-authentication-state"
+  },
+  {
+    name: "getLocalStorage",
+    description: "Retrieves accounts stored in local storage",
+    function: handleGetLocalStorage,
+    link: "https://docs.hiro.so/stacks/connect/guides/authenticate-users#access-user-data"
+  },
+  {
+    name: "stx_signMessage",
+    description: "Signs a message with wallet account's private key",
+    function: handleSignMessage,
+    link: "https://docs.hiro.so/stacks/connect/guides/sign-messages#sign-messages"
+  },
+  {
+    name: "stx_callContract",
+    description: "Calls `.counter` contract's `increment` function",
+    function: handleCallContract,
+    link: "https://docs.hiro.so/stacks/connect/guides/broadcast-transactions#sign-and-broadcast-transactions"
+  },
+  {
+    name: "disconnect",
+    description: "Disconnects wallet from app",
+    function: handleDisconnect,
+    link: "https://docs.hiro.so/stacks/connect/guides/authenticate-users#manage-authentication-state"
+  }
+]
 </script>
 
 <template>
@@ -113,51 +147,14 @@ function handleConsoleLog() {
     </p>
     <p>- Open up browser console to see responses.</p>
     <br />
-    <small
-      >Checks if wallet is connected to app
-      <a
-        href="https://docs.hiro.so/stacks/connect/guides/authenticate-users#manage-authentication-state"
-        target="_blank"
-        ><CircleHelp :size="13" /></a
-    ></small>
-    <button @click="handleIsConnected">isConnected</button>
-    <small>
-      This will get accounts stored in local storage
-      <a
-        href="https://docs.hiro.so/stacks/connect/guides/authenticate-users#access-user-data"
-        target="_blank"
-      >
-        <CircleHelp :size="13" />
-      </a>
-    </small>
-    <button @click="handleGetLocalStorage">getLocalStorage</button>
-    <small
-      >Signs a message with wallet account's private key
-      <a
-        href="https://docs.hiro.so/stacks/connect/guides/sign-messages#sign-messages"
-        target="_blank"
-      >
-        <CircleHelp :size="13" /> </a
-    ></small>
-    <button @click="handleSignMessage">stx_signMessage</button>
-    <small
-      >Calls <code>.counter</code> contract's <code>increment</code> function
-      <a
-        href="https://docs.hiro.so/stacks/connect/guides/broadcast-transactions#sign-and-broadcast-transactions"
-        target="_blank"
-      >
-        <CircleHelp :size="13" /> </a
-    ></small>
-    <button @click="handleCallContract">stx_callContract</button>
-    <small
-      >Disconnects wallet from app
-      <a
-        href="https://docs.hiro.so/stacks/connect/guides/authenticate-users#manage-authentication-state"
-        target="_blank"
-      >
-        <CircleHelp :size="13" /> </a
-    ></small>
-    <button @click="handleDisconnect">disconnect</button>
+    <Button
+      v-for="(method, index) in methodsArray"
+      :method="method.name"
+      :description="method.description"
+      :function="method.function"
+      :link="method.link"
+      :key="index"
+    />
   </template>
 </template>
 
