@@ -57,7 +57,7 @@ onBeforeMount(async () => {
   }, 100)
 
   await handleDevnetConnectionStatus()
-  // checkDevnetConnectionInterval = window.setInterval(handleDevnetConnectionStatus, 30000)
+  checkDevnetConnectionInterval = window.setInterval(handleDevnetConnectionStatus, 30000)
 })
 
 const handleMessageFromContentScript = (event: MessageEvent) => {
@@ -91,8 +91,7 @@ onUnmounted(() => {
   >
   <div class="main-container">
     <h2>Wallet <> App Template</h2>
-    <!-- <template v-if="!isStacksWalletInjected || !isDevnetConnected"> -->
-    <template v-if="false">
+    <template v-if="!isStacksWalletInjected || !isDevnetConnected">
       <Instructions />
     </template>
 

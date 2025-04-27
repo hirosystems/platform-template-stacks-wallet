@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { inject, type Ref } from "vue"
 import { connect, disconnect, getLocalStorage, isConnected, request } from "@stacks/connect"
-import { CircleHelp } from "lucide-vue-next"
 import Button from "./ui/Button.vue"
 
 let isWalletConnected = inject("isWalletConnected") as Ref<boolean>
