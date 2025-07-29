@@ -64,4 +64,4 @@ plan:
             emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
             path: contracts/counter.clar
             clarity-version: 3
-      epoch: "3.1"
+      epoch: "3.0"
